@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matteo Rufolo</title>
+<meta name="description" content="Matteo Rufolo — PhD researcher in meta-learning and in-context learning for dynamical systems, IDSIA (USI-SUPSI).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF9F6;
+    --ink: #1C1F22;
+    --muted: #62676D;
+    --line: #E2E0D8;
+    --accent: #24616B;
+    --accent-warm: #B4772C;
+    --max-w: 700px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: auto; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration-color: rgba(36,97,107,0.35);
+    text-underline-offset: 3px;
+  }
+  a:hover { text-decoration-color: var(--accent); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 5rem;
+  }
+
+  /* ---------- Header ---------- */
+  header.hero {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin-bottom: 3rem;
+  }
+
+  .avatar {
+    flex: none;
+    width: 92px;
+    height: 92px;
+  }
+
+  h1 {
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    font-size: 2.15rem;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.35rem;
+    color: var(--ink);
+  }
+
+  .tagline {
+    font-size: 1.02rem;
+    color: var(--muted);
+    margin: 0 0 0.7rem;
+    max-width: 42ch;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem 1.1rem;
+    font-size: 0.93rem;
+  }
+  .links a { color: var(--ink); font-weight: 500; }
+  .links a:hover { color: var(--accent); }
+
+  /* ---------- Sections ---------- */
+  section { margin-top: 3.2rem; }
+
+  h2 {
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 0 1.1rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section > p { margin: 0 0 1rem; max-width: 62ch; }
+
+  /* ---------- News timeline ---------- */
+  .timeline {
+    position: relative;
+    padding-left: 1.4rem;
+    border-left: 1.5px solid var(--line);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -1.44rem;
+    top: 0.45rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-warm);
+  }
+
+  .timeline-date {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.15rem;
+    font-weight: 500;
+  }
+
+  .timeline-item p { margin: 0; max-width: 58ch; }
+
+  /* ---------- Publications ---------- */
+  .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .pub-title {
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+    line-height: 1.4;
+  }
+
+  .pub-authors {
+    color: var(--muted);
+    font-size: 0.94rem;
+    margin: 0 0 0.2rem;
+  }
+  .pub-authors .me { color: var(--ink); font-weight: 500; }
+
+  .pub-venue {
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin: 0;
+  }
+
+  .pub-award {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--accent-warm);
+  }
+
+  /* ---------- Research interests ---------- */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.6rem;
+  }
+  .tag {
+    font-size: 0.87rem;
+    color: var(--ink);
+    background: #F0EEE7;
+    border: 1px solid var(--line);
+    padding: 0.3rem 0.7rem;
+    border-radius: 5px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 480px) {
+    header.hero { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    h1 { font-size: 1.8rem; }
+    .wrap { padding: 3rem 1.25rem 4rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <svg class="avatar" viewBox="0 0 92 92" role="img" aria-label="Monogram MR">
+      <circle cx="46" cy="46" r="44" fill="none" stroke="#E2E0D8" stroke-width="1"/>
+      <ellipse cx="46" cy="46" rx="40" ry="18" fill="none" stroke="#B4772C" stroke-width="1" opacity="0.55" transform="rotate(-18 46 46)"/>
+      <circle cx="46" cy="46" r="30" fill="#F0EEE7"/>
+      <text x="46" y="55" text-anchor="middle" font-family="Newsreader, serif" font-size="26" font-weight="600" fill="#1C1F22">MR</text>
+    </svg>
+    <div>
+      <h1>Matteo Rufolo</h1>
+      <p class="tagline">PhD researcher in meta-learning &amp; in-context learning for dynamical systems, at IDSIA (USI-SUPSI).</p>
+      <nav class="links">
+        <a href="mailto:matteo.rufolo@outlook.it">Email</a>
+        <a href="https://github.com/mattrufolo">GitHub</a>
+        <a href="https://www.linkedin.com/in/matteo-r-010577226">LinkedIn</a>
+        <a href="cv.pdf">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I'm a PhD researcher at <a href="https://www.idsia.ch/">IDSIA</a> (USI-SUPSI, Lugano), working on
+      meta-learning and in-context learning for dynamical systems. My research develops methods for fast
+      adaptation and probabilistic state estimation from noisy, sequential observations &mdash; spanning
+      Transformer and state-space architectures, latent dynamics representations, and diffusion-based
+      generative sequence models. I'm particularly interested in the interplay between amortized inference,
+      distributional robustness, and interpretability, and in testing these ideas on real physical systems,
+      from robotic arms to batteries.
+    </p>
+    <p>
+      Before my PhD, I worked at <a href="https://home.cern/">CERN</a> on large-scale nonlinear physics
+      simulation for LHC luminosity optimization, and completed my MSc in Mathematical Engineering at
+      Politecnico di Torino (110/110 cum laude), with an exchange internship at the Basque Center of
+      Applied Mathematics (BCAM).
+    </p>
+  </section>
+
+  <section id="news">
+    <h2>News</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <span class="timeline-date">August 2026</span>
+        <p>Attended the ProbAI Summer School in Vilnius, Lithuania.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-date">July 2026</span>
+        <p>
+          Presented <em>"Amortized Neural-Symbolic Inverse Dynamics: Robust and Invariant Parameter
+          Inference via Latent Dynamics"</em> at the AI4Physics Workshop, ICML 2026, in Seoul.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-date">2026</span>
+        <p>
+          Two papers accepted to IEEE CDC 2026: a diffusion-based sequence model for in-context robot
+          dynamics, and a variational extension of manifold meta-learning for calibrated uncertainty
+          quantification.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-date">2026</span>
+        <p>
+          "Distributionally robust minimization in meta-learning for system identification" named a
+          finalist for the IEEE CSS Swiss Chapter Young Author Best Journal Paper Award.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-date">2026</span>
+        <p>"Manifold meta-learning for reduced-complexity neural system identification" accepted to Automatica.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-date">January 2024</span>
+        <p>Started my PhD in meta-learning at IDSIA (USI-SUPSI), Lugano.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="pub-list">
+
+      <div>
+        <p class="pub-title">Amortized Neural-Symbolic Inverse Dynamics: Robust and Invariant Parameter Inference via Latent Dynamics</p>
+        <p class="pub-authors"><span class="me">Matteo Rufolo</span>, Dario Piga, Marco Forgione</p>
+        <p class="pub-venue">AI4Physics Workshop, ICML 2026</p>
+      </div>
+
+      <div>
+        <p class="pub-title">Diffusion Sequence Models for Generative In-Context Meta-Learning of Robot Dynamics</p>
+        <p class="pub-authors">Moroncelli, <span class="me">Matteo Rufolo</span>, et al.</p>
+        <p class="pub-venue">IEEE CDC 2026 &middot; <a href="https://arxiv.org/abs/2604.13366">arXiv:2604.13366</a></p>
+      </div>
+
+      <div>
+        <p class="pub-title">Variational Meta-Learning Inference for Low-Dimensional Neural System Identification</p>
+        <p class="pub-authors"><span class="me">Matteo Rufolo</span>, Dario Piga, Marco Forgione</p>
+        <p class="pub-venue">IEEE CDC 2026</p>
+      </div>
+
+      <div>
+        <p class="pub-title">Manifold Meta-Learning for Reduced-Complexity Neural System Identification</p>
+        <p class="pub-authors">Marco Forgione, Ankush Chakrabarty, Dario Piga, <span class="me">Matteo Rufolo</span>, Alberto Bemporad</p>
+        <p class="pub-venue">Automatica &middot; <a href="https://arxiv.org/abs/2504.11811">arXiv:2504.11811</a></p>
+      </div>
+
+      <div>
+        <p class="pub-title">Distributionally Robust Minimization in Meta-Learning for System Identification</p>
+        <p class="pub-authors"><span class="me">Matteo Rufolo</span>, Dario Piga, Marco Forgione</p>
+        <p class="pub-venue">IEEE Control Systems Letters (Q1)</p>
+        <span class="pub-award">Finalist, IEEE CSS Swiss Chapter Young Author Best Journal Paper Award 2026</span>
+      </div>
+
+      <div>
+        <p class="pub-title">Enhanced Transformer Architecture for In-Context Learning of Dynamical Systems</p>
+        <p class="pub-authors"><span class="me">Matteo Rufolo</span>, Dario Piga, Gabriele Maroni, Marco Forgione</p>
+        <p class="pub-venue">European Control Conference (ECC) 2025</p>
+      </div>
+
+      <div>
+        <p class="pub-title">Synthetic Data Generation for System Identification: Leveraging Knowledge Transfer from Similar Systems</p>
+        <p class="pub-authors">Dario Piga, <span class="me">Matteo Rufolo</span>, Gabriele Maroni, Manas Mejari, Marco Forgione</p>
+        <p class="pub-venue">IEEE CDC 2024</p>
+      </div>
+
+      <div>
+        <p class="pub-title">Numerical Methods for Emittance Computation from Luminosity</p>
+        <p class="pub-authors"><span class="me">Matteo Rufolo</span>, Lorenzo Giacomel, Andrea Fornara, Guido Sterbini, Elleanor Lamb</p>
+        <p class="pub-venue">JACoW IPAC 2024</p>
+      </div>
+
+      <div>
+        <p class="pub-title">In-Context Learning for System Identification: Unified Framework, Enhanced Methods, and Benchmark Results</p>
+        <p class="pub-authors"><span class="me">Matteo Rufolo</span>, Dario Piga, Filippo Pura, Marco Forgione</p>
+        <p class="pub-venue">In revision, Automatica (Q1)</p>
+      </div>
+
+      <div>
+        <p class="pub-title">Neural Amortization for Nonlinear System Identification</p>
+        <p class="pub-authors"><span class="me">Matteo Rufolo</span>, Francois Germain, Gordon Wichern, Alberto Bemporad, Dario Piga, Marco Forgione, Ankush Chakrabarty</p>
+        <p class="pub-venue">In revision, Neurocomputing (Q1)</p>
+      </div>
+
+      <div>
+        <p class="pub-title">A Physics-Informed In-Context Learning Framework for Online Force Prediction in Contact Tasks</p>
+        <p class="pub-authors">Charbel Barsomian, <span class="me">Matteo Rufolo</span>, Andrea Monguzzi, Navvab Kashiri, Francesco Braghin, Marco Forgione, Loris Roveda</p>
+        <p class="pub-venue">In revision, IEEE Transactions on Robot Learning</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>Research interests</h2>
+    <div class="tags">
+      <span class="tag">Meta-Learning</span>
+      <span class="tag">In-Context Learning</span>
+      <span class="tag">State Estimation</span>
+      <span class="tag">Uncertainty Quantification</span>
+      <span class="tag">Sequential Modeling</span>
+      <span class="tag">Diffusion Models</span>
+      <span class="tag">Bilevel Optimization</span>
+      <span class="tag">DNN Interpretability</span>
+      <span class="tag">Scientific ML</span>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Matteo Rufolo &middot; Lugano, Switzerland</p>
+  </footer>
+
+</div>
+</body>
+</html>
